@@ -1,0 +1,35 @@
+这两天多次要在Ubuntu上用apt-get安装软件，虽然Tab功能很强大，但是还是经常出现Tab不出来的情况。后来，经过多次尝试，又上网查了查资料，才发现一个坑爹的事实：如果安装Ubuntu时你选择了中国时区，那么系统安好后默认的软件源就是中国的软件源！
+
+所以，在这里把常用的软件源做个小结，先说命令格式：
+
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu hardy main multiverse" 
+其中引号中的为软件源地址。
+
+在这里再提几个软件源地址： 
+deb http://security.ubuntu.com/ubuntu edgy-security main restricted multiverseuniverse deb-src http://security.ubuntu.com/ubuntuedgy-security main restricted multiverse universe
+
+debhttp://archive.canonical.com/ubuntu dapper-commercial main
+
+ 
+
+debhttp://archive.ubuntu.org.cn/ubuntu-cn dapper main universe multiverserestricted
+
+ 
+
+debhttp://ubuntu.cn99.com/ubuntu-cn/ dapper main restricted universe multiverse
+
+ 
+
+debhttp://archive.ubuntu.com/ubuntu/ edgy-proposed universe main multiverserestricted
+
+  
+
+debhttp://archive.ubuntu.com/ubuntu/ edgy-backports universe main multiverserestricted
+
+  
+
+debhttp://static.audacious-media-player.org/ubuntu dapper main
+
+ 
+
+有了这些可用的软件就多多了~
