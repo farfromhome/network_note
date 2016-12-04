@@ -1,0 +1,19 @@
+按照官方文档的说明，安装scrapy 需要以下程序或者库：
+
+（1）、Python 2.7
+
+（2）、lxml。 Most linux distributions ships PRepackaged versions of lxml. Otherwise refer tohttp://lxml.de/installation.html
+
+（3）、OpenSSL。 This comes preinstalled in all Operating systems except Windows (see Platform specific installation notes)
+
+（4）、pip or easy_install Python package managers
+
+
+一：
+sudo apt-get install python-lxml
+sudo apt-get install python-openssl
+二：
+sudo apt-get install python-dev
+udo apt-get install libevent-dev
+sudo apt-get install python-pip
+sudo pip install Scrapy
