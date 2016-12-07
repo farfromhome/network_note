@@ -1,0 +1,53 @@
+
+Ubuntu无法识别显示器情况下如何设置高分辨率
+
+
+安装Ubuntu后，出现无法识别显示器，从而造成无法设置高分辨率。
+
+
+
+(一)使用xrandr命令，查看当前显示器显示配置
+
+linux@linux:~$ xrandr
+
+Screen 0: minimum 320 x 200, current 1920 x 1080, maximum 32767 x 32767
+VGA1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+1024x768      60.0 
+800x600        60.3    56.2 
+848x480        60.0 
+640x480        59.9
+
+可以看到当前使用的显卡是 VGA1（后续显示模式在此显卡上添加），但列表中无 1920 x 1080 的分别率。
+
+
+(二)cvt 命令生成分辨率
+
+cvt X Y，X 表示分辨率宽度，Y 表示分辨率高度。如生成 1980x1080 的分辨率，
+
+可使用命令：
+
+linux@linux:~$ cvt 1920 1080
+# 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz
+Modeline "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+
+
+(三)将 cvt 得到的显示模式使用 xrandr 命令添加
+
+sudo xrandr --newmode "1920x1080" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+sudo xrandr --addmode VGA1 1920x1080
+sudo xrandr --output VGA1 --mode 1920x1080
+
+
+(四)将步骤(三)的命令添加到 X 图形界面的启动命令中。
+
+使用如下命令：
+
+sudo gedit /etc/gdm/Init/Default
+
+打开 X 图形界面的启动配置文件，添加如下：
+
+sudo xrandr --newmode "1920x1080" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+sudo xrandr --addmode VGA1 1920x1080
+sudo xrandr --output VGA1 --mode 1920x1080
+/sbin/initctl -q emit login-session-start DISPLAY_MANAGER=gdm
+
