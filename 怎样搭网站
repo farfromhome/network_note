@@ -1,0 +1,30 @@
+开始搭建，先讲github的代码是搭建，如果你看不懂，可以看后边的简单的鼠标式操作：
+1、首先你得有一个Github账号，没有的话去github.com注册一个；
+
+点击Sign up for Github进入注册页面
+
+2、有了账号以后登录到Github新建仓库
+创建一个新仓库 （Create a repository）
+
+如图所示，登录自己的GitHub主页，从右上角新建一个仓库，仓库名（Repository name）设置为你自己的用户名为前缀。
+2. 把仓库拉到本地 （Clone the repository）
+使用任何一种方式将刚才建立的仓库拉取到本地。如上图所示，我喜欢使用Git Bash终端，在Git Bash中输入git clone git@github.com:unclechen/unclechen.github.io.git即可将刚才建立的仓库拉取到本地。
+3. 建立index.html文件 （Hello World）
+如上图所示，继续在Git Bash中输入
+cd unclechen.github.io/命令，进入刚才拉取的仓库（记住你应该将上面的unclechen改成自己的username）。然后在Git Bash中继续输入
+echo "Hello World" > index.html
+命令，在本地先创建index.html文件。
+4. 提交到GitHub服务器 （Commit the file）
+创建index.html文件后，和使用其他Git仓库的基本操作一样，需要提交修改到服务器才能生效。
+所以我们需要依次输入三条Git命令，第一条是
+git add .
+第二条是
+git commit -a -m "my fisrt blog"
+第三条是
+git push
+这样就把刚才建立的index.html文件提交到了GitHub服务器上，如下图所示：
+
+5. 搭建成功 （…and you’re done!）
+好了！Push到GitHub之后，你就打开浏览器在地址栏输入http://username.github.io/来访问你的个人主页了，别忘了将username改成你自己的用户名。记住，页面初次打开可能会显示404错误。这没有关系，因为需要等待一些时间之后才会生效，我的博客是过了大概10分钟左右生效的吧。
+6.你也可以配置自己的域名，去淘宝买一个自己的域名配置一下就好了，配置方式很简单，自行google，我们继续讲更简单的方式。
+如果你看懵了，那就跳过上边的，安装一款软件，软件把git所有的操作代码都封装成了鼠标操作。你可以操作鼠标就行了。
